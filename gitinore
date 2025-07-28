@@ -1,9 +1,11 @@
 __pycache__/
 *.pyc
 *.pyo
-*.log
+*.pyd
 *.DS_Store
-*.env
-*.idea/
-encrypted_*
-decrypted_*
+env/
+.venv/
+*.png
+*.jpg
+*.jpeg
+output/
