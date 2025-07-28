@@ -1,44 +1,31 @@
 from PIL import Image
-import os
+import numpy as np
 
-def encrypt_image(image_path, key):
-    img = Image.open(image_path)
-    pixels = img.load()
+def encrypt_image(input_path, output_path, key=123):
+    img = Image.open(input_path)
+    img_array = np.array(img)
+    encrypted_array = img_array ^ key
+    encrypted_img = Image.fromarray(encrypted_array.astype(np.uint8))
+    encrypted_img.save(output_path)
+    print(f"Encrypted image saved to {output_path}")
 
-    for i in range(img.size[0]):
-        for j in range(img.size[1]):
-            r, g, b = pixels[i, j]
-            pixels[i, j] = ((r + key) % 256, (g + key) % 256, (b + key) % 256)
-
-    encrypted_path = "encrypted_" + os.path.basename(image_path)
-    img.save(encrypted_path)
-    print(f"Encrypted image saved as: {encrypted_path}")
-
-def decrypt_image(image_path, key):
-    img = Image.open(image_path)
-    pixels = img.load()
-
-    for i in range(img.size[0]):
-        for j in range(img.size[1]):
-            r, g, b = pixels[i, j]
-            pixels[i, j] = ((r - key) % 256, (g - key) % 256, (b - key) % 256)
-
-    decrypted_path = "decrypted_" + os.path.basename(image_path)
-    img.save(decrypted_path)
-    print(f"Decrypted image saved as: {decrypted_path}")
-
-def main():
-    print("Image Pixel Encryption/Decryption Tool")
-    choice = input("Choose (e)ncrypt or (d)ecrypt: ").lower()
-    image_path = input("Enter the path to the image: ")
-    key = int(input("Enter encryption key (integer): "))
-
-    if choice == 'e':
-        encrypt_image(image_path, key)
-    elif choice == 'd':
-        decrypt_image(image_path, key)
-    else:
-        print("Invalid choice.")
+def decrypt_image(input_path, output_path, key=123):
+    img = Image.open(input_path)
+    img_array = np.array(img)
+    decrypted_array = img_array ^ key
+    decrypted_img = Image.fromarray(decrypted_array.astype(np.uint8))
+    decrypted_img.save(output_path)
+    print(f"Decrypted image saved to {output_path}")
 
 if __name__ == "__main__":
-    main()
+    import os
+
+    print("1. Encrypt Image\n2. Decrypt Image")
+    choice = input("Choose an option (1/2): ")
+
+    if choice == '1':
+        encrypt_image("Screenshot 2025-07-28 221223.png", "encrypted_image.png")
+    elif choice == '2':
+        decrypt_image("encrypted_image.png", "decrypted_image.png")
+    else:
+        print("Invalid choice")
