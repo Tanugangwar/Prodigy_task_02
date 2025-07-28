@@ -1,0 +1,44 @@
+from PIL import Image
+import os
+
+def encrypt_image(image_path, key):
+    img = Image.open(image_path)
+    pixels = img.load()
+
+    for i in range(img.size[0]):
+        for j in range(img.size[1]):
+            r, g, b = pixels[i, j]
+            pixels[i, j] = ((r + key) % 256, (g + key) % 256, (b + key) % 256)
+
+    encrypted_path = "encrypted_" + os.path.basename(image_path)
+    img.save(encrypted_path)
+    print(f"Encrypted image saved as: {encrypted_path}")
+
+def decrypt_image(image_path, key):
+    img = Image.open(image_path)
+    pixels = img.load()
+
+    for i in range(img.size[0]):
+        for j in range(img.size[1]):
+            r, g, b = pixels[i, j]
+            pixels[i, j] = ((r - key) % 256, (g - key) % 256, (b - key) % 256)
+
+    decrypted_path = "decrypted_" + os.path.basename(image_path)
+    img.save(decrypted_path)
+    print(f"Decrypted image saved as: {decrypted_path}")
+
+def main():
+    print("Image Pixel Encryption/Decryption Tool")
+    choice = input("Choose (e)ncrypt or (d)ecrypt: ").lower()
+    image_path = input("Enter the path to the image: ")
+    key = int(input("Enter encryption key (integer): "))
+
+    if choice == 'e':
+        encrypt_image(image_path, key)
+    elif choice == 'd':
+        decrypt_image(image_path, key)
+    else:
+        print("Invalid choice.")
+
+if __name__ == "__main__":
+    main()
