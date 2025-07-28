@@ -1,43 +1,49 @@
-# Prodigy InfoTech Internship - Task 02
+# 🔐 Pixel Manipulation for Image Encryption: Task 02
 
-## 🧩 Task: Pixel Manipulation for Image Encryption
+## 📌 Overview
 
-This Python project allows users to **encrypt** and **decrypt** images using pixel manipulation techniques. Each pixel's RGB value is altered using a simple mathematical operation with a provided key.
+This project is a simple image encryption and decryption tool using pixel manipulation. It demonstrates basic cryptographic techniques by performing pixel-wise operations such as pixel value swapping and basic    arithmetic operations (e.g., XOR) on the image data.
 
----
+## 🚀 Features
 
-## ⚙️ Features
-- Encrypts images using RGB value shifting
-- Decrypts back using inverse shift
-- Works on PNG, JPG, BMP formats
-- CLI-based input for file and key
+-🎨 Encrypt images using pixel-level XOR encryption
+-🔄  Decrypt images using the same reversible operation
+-🧠 Simple and intuitive to use
 
----
+## 🔐 Getting Started
 
-## 📁 Files Included
-- `pixel_encryptor.py` – Main Python code
-- `README.md` – Documentation
-- `LICENSE` – Open-source license
-- `.gitignore` – Ignored files for Git
+### ✅ Prerequisites
 
----
+- Python 3.x
+- Pillow
+- NumPy
 
-## ▶️ How to Run
+## ⚙️ Installation
 
-1. Install required library:
-   ```bash
-   pip install pillow
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/image-encryption-tool.git
+    cd image-encryption-tool
+    ```
 
-2.Run the script:
-```bash
-python pixel_encryptor.py
-```
-3.Provide input:
-Choose (e)ncrypt or (d)ecrypt: e
-Enter the path to the image: sample.png
-Enter encryption key (integer): 50
+2. Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-👩‍💻 Author
-Tanu Gangwar
-B.Tech CSE, Galgotias University
-Prodigy InfoTech Internship – Task 02
+## 💻 Usage
+
+1. Run the script:
+    ```bash
+    python main.py
+    ```
+
+2. Follow the instructions to encrypt/decrypt an image.
+
+# 🔐 Example
+
+- Original Image → Encrypted Image → Decrypted Image
+
+ 📝 License
+
+This project is licensed under the MIT License. See `LICENSE` for details.
