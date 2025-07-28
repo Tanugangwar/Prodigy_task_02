@@ -1,13 +1,13 @@
-📌 Sample Output:
-
-Image Pixel Encryption/Decryption Tool
-Choose (e)ncrypt or (d)ecrypt: e
-Enter the path to the image: input.jpg
-Enter encryption key (integer): 100
-Encrypted image saved as: encrypted_input.jpg
+✅ Sample Output: Encryption Flow:
+1. Encrypt Image
+2. Decrypt Image
+Choose an option (1/2): 1
+Encrypted image saved to encrypted_image.png
 
 
 
-🔐 How It Works:
--For encryption: each RGB pixel (r, g, b) becomes ((r+key)%256, (g+key)%256, (b+key)%256)
--For decryption: subtract the key instead
+✅ Sample Output: Decryption Flow:
+1. Encrypt Image
+2. Decrypt Image
+Choose an option (1/2): 2
+Decrypted image saved to decrypted_image.png
