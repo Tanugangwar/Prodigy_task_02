@@ -27,19 +27,15 @@ This Python project allows users to **encrypt** and **decrypt** images using pix
 1. Install required library:
    ```bash
    pip install pillow
-   
+
 2.Run the script:
 ```bash
 python pixel_encryptor.py
-
+```
 3.Provide input:
 Choose (e)ncrypt or (d)ecrypt: e
 Enter the path to the image: sample.png
 Enter encryption key (integer): 50
-
-🔐 How It Works:
--For encryption: each RGB pixel (r, g, b) becomes ((r+key)%256, (g+key)%256, (b+key)%256)
--For decryption: subtract the key instead
 
 👩‍💻 Author
 Tanu Gangwar
